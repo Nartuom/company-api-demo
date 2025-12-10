@@ -13,7 +13,7 @@ Fastify + TypeScript service that exposes company and employee data from local J
    npm install
    ```
 2) Configure data paths (defaults already provided):
-   - Copy/inspect `.env`:
+   - Create `.env` @root:
      ```
      COMPANIES_DATA_PATH=./data/companies
      EMPLOYEES_DATA_PATH=./data/employees
@@ -103,7 +103,8 @@ Returns a single company with its employees.
 ```mermaid
 flowchart TD
 
-Client[HTTP Client\n(Browser)] --> Fastify[Fastify Router]
+
+Client[HTTP Client (Browser)] --> Fastify[Fastify Router]
 
 Fastify --> Controller[Controller\n(Parses query, calls service)]
 Controller --> Service[Service Layer\n(Filter, paginate, business logic)]
