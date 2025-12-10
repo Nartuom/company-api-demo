@@ -116,4 +116,10 @@ Loaders --> Files["Data Files (companies/*.json, employees/*.json)"]
 
 ## Notes for Production
 - Replace file-based data with a database or external service.
+## Security Considerations
+- API key authentication using `x-api-key` header
+- Input validation with Zod (tick)
+- Rate limiting
+- Secure secrets handling
+- Potential for JWT-based auth in future
 
