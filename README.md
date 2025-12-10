@@ -103,12 +103,13 @@ Returns a single company with its employees.
 ```mermaid
 flowchart TD
 
-Client["HTTP Client<br/>(Browser)"] --> Fastify["Fastify Router"]
-Fastify --> Controller["Controller<br/>(Parses query, calls service)"]
-Controller --> Service["Service Layer<br/>(Filter, paginate, business logic)"]
-Service --> Repo["Repository<br/>(In-memory joined data)"]
-Repo --> Loader["JSON Loaders<br/>(Safe parse, skip invalid)"]
-Loader --> Files["Data Files<br/>companies/*.json<br/>employees/*.json"]
+Client["HTTP Client (Browser/Postman)"] --> App["Fastify App (app.ts)"]
+App --> Controller["Controller (companyController.ts)"]
+Controller --> Service["Service Layer (companyService.ts)"]
+Service --> Data["In-Memory Data Access (getAllCompanies, findCompanyById)"]
+Data --> CWE["CompanyWithEmployeesLoader (companyWithEmployeesLoader.ts)"]
+CWE --> Loaders["JSON Loaders (jsonLoader.ts, loadCompaniesJson.ts, loadEmployeesJson.ts)"]
+Loaders --> Files["Data Files (companies/*.json, employees/*.json)"]
 
 ```
 
